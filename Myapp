@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My App</title>
+</head>
+<body>
+  <h1>My App</h1>
+  <p>मेरा ऐप डाउनलोड करें</p>
+
+  <a href="myapp.apk" download>
+    <button>Install App</button>
+  </a>
+</body>
+</html>
