@@ -7,7 +7,7 @@
   <h1>My App</h1>
   <p>मेरा ऐप डाउनलोड करें</p>
 
-  <a href="myapp.apk" download>
+  <a href="app.apk" download>
     <button>Install App</button>
   </a>
 </body>
