@@ -1,221 +1,231 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facebook - App Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+}
 
-    body {
-      background: #fff;
-      color: #202124;
-    }
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:white;
+  color:#202124;
+}
 
-    .topbar {
-      height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 22px;
-    }
+.header{
+  display:flex;
+  align-items:center;
+  padding:20px;
+  gap:20px;
+}
 
-    .back {
-      font-size: 38px;
-      font-weight: 300;
-      color: #555;
-    }
+.icon{
+  width:100px;
+  height:100px;
+  background:#1877f2;
+  border-radius:22px;
+  color:white;
+  font-size:85px;
+  font-weight:bold;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 
-    .menu {
-      font-size: 30px;
-      letter-spacing: 4px;
-      transform: rotate(90deg);
-      color: #555;
-    }
+.title h1{
+  margin:0 0 8px;
+  font-size:30px;
+  font-weight:500;
+}
 
-    .app-header {
-      display: flex;
-      padding: 8px 22px 20px;
-      gap: 25px;
-      align-items: center;
-    }
+.title p{
+  margin:5px 0;
+  color:#2874c6;
+  font-size:17px;
+}
 
-    .app-icon {
-      width: 140px;
-      height: 140px;
-      border-radius: 30px;
-      background: #1877f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
+.info{
+  color:#666 !important;
+}
 
-    .app-icon span {
-      color: white;
-      font-family: Arial, sans-serif;
-      font-size: 112px;
-      font-weight: bold;
-      line-height: 1;
-      transform: translateY(13px);
-    }
+.buttons{
+  display:flex;
+  gap:15px;
+  padding:10px 20px 25px;
+}
 
-    .app-info h1 {
-      font-size: 40px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
+button{
+  flex:1;
+  height:55px;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:bold;
+}
 
-    .developer {
-      color: #2874c6;
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
+.uninstall{
+  background:white;
+  color:#1769c2;
+  border:1px solid #ccc;
+}
 
-    .details {
-      color: #666;
-      font-size: 20px;
-    }
+.update{
+  background:#1769d1;
+  color:white;
+  border:0;
+}
 
-    .buttons {
-      display: flex;
-      gap: 22px;
-      padding: 5px 22px 25px;
-    }
+.box{
+  margin:20px;
+  padding:20px;
+  background:#f1f5f9;
+  border-radius:25px;
+}
 
-    button {
-      height: 68px;
-      border-radius: 35px;
-      font-size: 23px;
-      font-weight: 500;
-      flex: 1;
-      cursor: pointer;
-    }
+.box h2{
+  margin-top:0;
+  font-size:21px;
+}
 
-    .uninstall {
-      background: white;
-      border: 2px solid #ddd;
-      color: #1769c2;
-    }
+.question{
+  background:white;
+  padding:18px;
+  border-radius:25px;
+  margin-top:15px;
+  color:#555;
+}
 
-    .update {
-      background: #1769d1;
-      border: none;
-      color: white;
-    }
+.suggestion{
+  background:#c7e7ff;
+  color:#075b8e;
+  padding:16px;
+  border-radius:25px;
+  margin-top:15px;
+}
 
-    .similar {
-      margin: 0 22px;
-      padding: 18px 0 25px;
-      display: flex;
-      gap: 18px;
-      align-items: flex-start;
-    }
+.rating{
+  padding:10px 20px 120px;
+}
 
-    .info-icon {
-      width: 28px;
-      height: 28px;
-      border: 2px solid #777;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #555;
-      font-weight: bold;
-      font-size: 17px;
-      flex-shrink: 0;
-    }
+.stars{
+  font-size:45px;
+  letter-spacing:5px;
+  color:#777;
+}
 
-    .similar-text {
-      font-size: 21px;
-      color: #666;
-      line-height: 1.5;
-    }
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:75px;
+  background:#f5f7fa;
+  border-top:1px solid #ddd;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
 
-    .similar-text strong {
-      display: block;
-      color: #555;
-      font-size: 24px;
-    }
+.nav{
+  text-align:center;
+  font-size:13px;
+  color:#555;
+}
 
-    .view {
-      color: #222;
-      font-weight: bold;
-      margin-top: 3px;
-    }
+.nav span{
+  display:block;
+  font-size:27px;
+  margin-bottom:3px;
+}
 
-    .ask-box {
-      margin: 0 22px 40px;
-      background: #f1f5f9;
-      border-radius: 32px;
-      padding: 22px;
-    }
+.active{
+  color:#1769c2;
+}
+</style>
+</head>
 
-    .ask-title {
-      font-size: 22px;
-      margin-bottom: 25px;
-    }
+<body>
 
-    .new {
-      background: #b8e9c5;
-      color: #216c35;
-      padding: 4px 9px;
-      border-radius: 12px;
-      font-size: 16px;
-    }
+<div class="header">
 
-    .question {
-      background: white;
-      border-radius: 35px;
-      padding: 20px 28px;
-      color: #666;
-      font-size: 19px;
-      margin-bottom: 20px;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+  <div class="icon">f</div>
 
-    .suggestion {
-      background: #c7e7ff;
-      color: #075b8e;
-      border-radius: 30px;
-      padding: 18px 28px;
-      font-size: 19px;
-      margin-top: 15px;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+  <div class="title">
+    <h1>Facebook</h1>
+    <p>Meta Platforms, Inc.</p>
+    <p class="info">Contains ads • In-app purchases</p>
+  </div>
 
-    .rating {
-      padding: 0 22px 30px;
-    }
+</div>
 
-    .rating h2 {
-      font-size: 27px;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
+<div class="buttons">
+  <button class="uninstall">Uninstall</button>
+  <button class="update">Update</button>
+</div>
 
-    .rating p {
-      color: #666;
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+<div class="box">
 
-    .stars {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 8px;
-    }
+  <h2>✨ Ask Play about this app <small>New!</small></h2>
 
-    .star {
-      font-size: 48px;
-      color: #777;
-    }
+  <div class="question">
+    Ask a question about this app
+  </div>
+
+  <div class="suggestion">
+    What is the main screen I will see when I open the app?
+  </div>
+
+  <div class="suggestion">
+    How can I control my privacy and who sees my posts?
+  </div>
+
+</div>
+
+<div class="rating">
+
+  <h2>Rate this app</h2>
+
+  <p>Tell others what you think</p>
+
+  <div class="stars">
+    ☆ ☆ ☆ ☆ ☆
+  </div>
+
+</div>
+
+<div class="bottom">
+
+  <div class="nav">
+    <span>🎮</span>
+    Games
+  </div>
+
+  <div class="nav active">
+    <span>▦</span>
+    Apps
+  </div>
+
+  <div class="nav">
+    <span>⌕</span>
+    Search
+  </div>
+
+  <div class="nav">
+    <span>▣</span>
+    Books
+  </div>
+
+  <div class="nav">
+    <span>♙</span>
+    You
+  </div>
+
+</div>
+
+</body>
+  </html>
