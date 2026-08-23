@@ -1,114 +1,110 @@
-<!DOCTYPE html>
+here<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Card Manager - Unofficial Demo</title>
+<title>Card App - Unofficial Demo</title>
 
 <style>
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
 }
 
 body{
-  font-family:Arial,sans-serif;
+  margin:0;
+  padding:0;
   background:#fff;
   color:#202124;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 .page{
   width:100%;
-  max-width:650px;
+  max-width:600px;
   margin:auto;
 }
 
-/* =========================
-   APP HEADER
-========================= */
+/* ================= HEADER ================= */
 
 .header{
   display:flex;
   align-items:center;
-  gap:14px;
-  padding:20px 18px 15px;
+  gap:12px;
+  padding:14px 15px 10px;
 }
 
-.app-icon{
-  width:72px;
-  height:72px;
-  min-width:72px;
-  border-radius:18px;
-  background:#fff;
-  box-shadow:0 2px 9px rgba(0,0,0,.18);
+.logo{
+  width:62px;
+  height:62px;
+  min-width:62px;
+  border-radius:16px;
+  background:#f7fbff;
+  box-shadow:0 2px 7px rgba(0,0,0,.14);
+
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
 }
 
-.app-icon-text{
-  font-size:18px;
-  font-weight:bold;
-  color:#0758b8;
-  line-height:1.05;
-}
-
-.app-icon-text span{
+.logo b{
   display:block;
-  color:#16a9df;
-  font-size:15px;
-  margin-top:3px;
+  font-size:16px;
+  color:#0758b8;
 }
 
-.title{
+.logo span{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  color:#159ed0;
+  margin-top:2px;
+}
+
+.app-info{
   flex:1;
 }
 
-.title h1{
-  font-size:22px;
-  font-weight:600;
-  line-height:1.2;
-  margin-bottom:5px;
+.app-info h1{
+  margin:0 0 3px;
+  font-size:20px;
+  font-weight:500;
+  line-height:1.15;
 }
 
-.title p{
-  font-size:13px;
-  line-height:1.35;
+.app-info p{
+  margin:2px 0;
+  font-size:12px;
+  line-height:1.25;
   color:#1769c2;
-  margin:3px 0;
 }
 
-.title .demo-label{
-  color:#666;
+.app-info .demo-name{
+  color:#777;
 }
 
-/* =========================
-   APP INFORMATION
-========================= */
+/* ================= INFO ================= */
 
-.info-row{
+.info{
   display:flex;
-  width:100%;
-  padding:13px 8px;
+  padding:10px 5px;
   border-top:1px solid #eee;
   border-bottom:1px solid #eee;
 }
 
-.info-item{
+.info-box{
   flex:1;
   text-align:center;
   border-right:1px solid #ddd;
 }
 
-.info-item:last-child{
-  border-right:none;
+.info-box:last-child{
+  border-right:0;
 }
 
-.big{
-  font-size:25px;
+.number{
+  font-size:21px;
   font-weight:bold;
 }
 
@@ -116,107 +112,100 @@ body{
   color:#1769d1;
 }
 
-.small{
-  color:#555;
-  font-size:13px;
-  margin-top:5px;
+.label{
+  margin-top:3px;
+  font-size:11px;
+  color:#666;
 }
 
-/* =========================
-   DEMO LABEL
-========================= */
+/* ================= DEMO ================= */
 
-.demo{
+.demo-note{
   text-align:center;
+  padding:9px 8px 2px;
   color:#777;
-  font-size:12px;
-  padding:13px 10px 4px;
+  font-size:11px;
 }
 
-/* =========================
-   INSTALL BUTTON
-========================= */
+/* ================= INSTALL ================= */
 
-.install-area{
-  padding:10px 20px 23px;
+.install{
+  padding:7px 15px 18px;
 }
 
-.install-btn{
+.install-button{
   display:block;
   width:100%;
-  padding:14px;
+  padding:12px;
+
   background:#1769d1;
-  color:#fff;
+  color:white;
+
   text-align:center;
   text-decoration:none;
-  border-radius:28px;
-  font-size:18px;
+
+  border-radius:24px;
+
+  font-size:16px;
   font-weight:bold;
-  box-shadow:0 3px 9px rgba(0,0,0,.18);
+
+  box-shadow:0 3px 7px rgba(0,0,0,.15);
 }
 
-.install-btn:active{
-  transform:scale(.98);
-}
-
-/* =========================
-   RATINGS
-========================= */
+/* ================= RATINGS ================= */
 
 .reviews{
   border-top:1px solid #ddd;
-  padding:21px 20px;
+  padding:17px 15px 25px;
 }
 
 .reviews h2{
-  font-size:21px;
+  margin:0 0 14px;
+  font-size:19px;
   font-weight:500;
-  margin-bottom:17px;
 }
 
-.rating-top{
+.rating{
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:15px;
 }
 
 .rating-number{
-  font-size:52px;
+  font-size:42px;
   line-height:1;
+}
+
+.review-count{
+  margin-top:4px;
+  color:#666;
+  font-size:11px;
 }
 
 .stars{
   color:#1769d1;
-  font-size:21px;
+  font-size:18px;
   letter-spacing:1px;
 }
 
-.review-count{
-  color:#666;
-  font-size:14px;
-  margin-top:5px;
-}
-
-/* =========================
-   RATING BARS
-========================= */
+/* ================= BARS ================= */
 
 .bars{
-  margin-top:20px;
+  margin-top:15px;
 }
 
-.bar-row{
+.row{
   display:flex;
   align-items:center;
-  gap:8px;
-  margin:8px 0;
-  font-size:13px;
+  gap:7px;
+  margin:6px 0;
+  font-size:11px;
 }
 
 .bar{
   flex:1;
-  height:10px;
-  background:#dce3eb;
+  height:7px;
+  background:#e1e7ed;
   border-radius:20px;
   overflow:hidden;
 }
@@ -227,115 +216,140 @@ body{
   border-radius:20px;
 }
 
-.five{
-  width:78%;
-}
+.five{width:78%}
+.four{width:15%}
+.three{width:6%}
+.two{width:4%}
+.one{width:3%}
 
-.four{
-  width:15%;
-}
+/* ================= REVIEW ================= */
 
-.three{
-  width:5%;
-}
-
-.two{
-  width:4%;
-}
-
-.one{
-  width:3%;
-}
-
-/* =========================
-   REVIEW
-========================= */
-
-.review-card{
-  margin-top:24px;
-  padding-top:20px;
+.review{
+  margin-top:20px;
+  padding-top:15px;
   border-top:1px solid #ddd;
 }
 
 .user{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:9px;
 }
 
 .avatar{
-  width:45px;
-  height:45px;
+  width:38px;
+  height:38px;
   border-radius:50%;
   background:#e5e7eb;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:20px;
+
+  font-size:17px;
 }
 
 .username{
-  font-size:16px;
+  font-size:14px;
   font-weight:bold;
 }
 
 .date{
-  font-size:12px;
+  margin-top:2px;
   color:#777;
-  margin-top:3px;
+  font-size:10px;
 }
 
 .review-stars{
+  margin-top:10px;
   color:#1769d1;
-  font-size:20px;
-  margin-top:14px;
+  font-size:17px;
 }
 
 .review-text{
+  margin-top:7px;
   color:#444;
-  font-size:14px;
-  line-height:1.55;
-  margin-top:9px;
+  font-size:12px;
+  line-height:1.45;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 .footer{
+  padding:18px 10px;
   text-align:center;
   color:#777;
-  font-size:11px;
-  padding:25px 15px;
+  font-size:10px;
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:360px){
+
+  .header{
+    padding:12px;
+    gap:9px;
+  }
+
+  .logo{
+    width:56px;
+    height:56px;
+    min-width:56px;
+  }
+
+  .logo b{
+    font-size:14px;
+  }
+
+  .logo span{
+    font-size:11px;
+  }
+
+  .app-info h1{
+    font-size:18px;
+  }
+
+  .app-info p{
+    font-size:11px;
+  }
+
+  .number{
+    font-size:19px;
+  }
+
+  .rating-number{
+    font-size:38px;
+  }
+
+  .stars{
+    font-size:16px;
+  }
 }
 </style>
 </head>
-
 
 <body>
 
 <div class="page">
 
-  <!-- APP HEADER -->
+  <!-- HEADER -->
 
   <div class="header">
 
-    <div class="app-icon">
-      <div class="app-icon-text">
-        CARD
+    <div class="logo">
+      <div>
+        <b>CARD</b>
         <span>APP</span>
       </div>
     </div>
 
-    <div class="title">
+    <div class="app-info">
 
       <h1>Card Manager<br>Credit Card</h1>
 
-      <p>
-        Card Management Services
-      </p>
+      <p>Card Management Services</p>
 
-      <p class="demo-label">
+      <p class="demo-name">
         Unofficial Demo
       </p>
 
@@ -346,21 +360,21 @@ body{
 
   <!-- APP INFORMATION -->
 
-  <div class="info-row">
+  <div class="info">
 
-    <div class="info-item">
-      <div class="big blue">4.6 ★</div>
-      <div class="small">1m reviews</div>
+    <div class="info-box">
+      <div class="number blue">4.6 ★</div>
+      <div class="label">1m reviews</div>
     </div>
 
-    <div class="info-item">
-      <div class="big">3+</div>
-      <div class="small">Rated for 3+</div>
+    <div class="info-box">
+      <div class="number">3+</div>
+      <div class="label">Rated for 3+</div>
     </div>
 
-    <div class="info-item">
-      <div class="big">10m+</div>
-      <div class="small">Downloads</div>
+    <div class="info-box">
+      <div class="number">10m+</div>
+      <div class="label">Downloads</div>
     </div>
 
   </div>
@@ -368,18 +382,17 @@ body{
 
   <!-- DEMO -->
 
-  <div class="demo">
+  <div class="demo-note">
     Unofficial Demo • Test Application
   </div>
 
 
   <!-- INSTALL -->
 
-  <div class="install-area">
+  <div class="install">
 
-    <a href="#"
-       class="install-btn"
-       onclick="showDemoMessage(); return false;">
+    <a href="./app.apk"
+       class="install-button">
       Install App
     </a>
 
@@ -392,10 +405,12 @@ body{
 
     <h2>Ratings and reviews</h2>
 
-    <div class="rating-top">
+    <div class="rating">
 
       <div>
-        <div class="rating-number">4.6</div>
+        <div class="rating-number">
+          4.6
+        </div>
 
         <div class="review-count">
           1,539,142 reviews
@@ -413,35 +428,35 @@ body{
 
     <div class="bars">
 
-      <div class="bar-row">
+      <div class="row">
         <span>5</span>
         <div class="bar">
           <div class="fill five"></div>
         </div>
       </div>
 
-      <div class="bar-row">
+      <div class="row">
         <span>4</span>
         <div class="bar">
           <div class="fill four"></div>
         </div>
       </div>
 
-      <div class="bar-row">
+      <div class="row">
         <span>3</span>
         <div class="bar">
           <div class="fill three"></div>
         </div>
       </div>
 
-      <div class="bar-row">
+      <div class="row">
         <span>2</span>
         <div class="bar">
           <div class="fill two"></div>
         </div>
       </div>
 
-      <div class="bar-row">
+      <div class="row">
         <span>1</span>
         <div class="bar">
           <div class="fill one"></div>
@@ -451,9 +466,9 @@ body{
     </div>
 
 
-    <!-- REVIEW CARD -->
+    <!-- REVIEW -->
 
-    <div class="review-card">
+    <div class="review">
 
       <div class="user">
 
@@ -462,7 +477,6 @@ body{
         </div>
 
         <div>
-
           <div class="username">
             User Review
           </div>
@@ -470,20 +484,17 @@ body{
           <div class="date">
             16/07/2026
           </div>
-
         </div>
 
       </div>
-
 
       <div class="review-stars">
         ★ ★ ★ ★ ★
       </div>
 
-
       <div class="review-text">
-        This is an official  page.
-        This content is only for testing the HTML design.
+        This is an unofficial demonstration page
+        created for testing the HTML design.
       </div>
 
     </div>
@@ -491,20 +502,11 @@ body{
   </div>
 
 
-  <!-- FOOTER -->
-
   <div class="footer">
-    • Not affiliated with any financial service
+    Unofficial Demo • Test Application
   </div>
 
 </div>
 
-
-<script>
-function showDemoMessage(){
-  alert("This is an Official app.");
-}
-</script>
-
 </body>
-</html>
+        </html>
