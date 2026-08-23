@@ -1,35 +1,510 @@
-here<style>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Card Manager - Unofficial Demo</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#fff;
+  color:#202124;
+}
+
+.page{
+  width:100%;
+  max-width:650px;
+  margin:auto;
+}
+
+/* =========================
+   APP HEADER
+========================= */
+
+.header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:20px 18px 15px;
+}
+
 .app-icon{
   width:72px;
   height:72px;
   min-width:72px;
-  border-radius:17px;
+  border-radius:18px;
   background:#fff;
-  box-shadow:0 2px 8px #ccc;
+  box-shadow:0 2px 9px rgba(0,0,0,.18);
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  text-align:center;
 }
 
 .app-icon-text{
   font-size:18px;
   font-weight:bold;
   color:#0758b8;
-  text-align:center;
-  line-height:1.1;
+  line-height:1.05;
 }
 
 .app-icon-text span{
-  color:#16a9df;
   display:block;
+  color:#16a9df;
+  font-size:15px;
+  margin-top:3px;
+}
+
+.title{
+  flex:1;
+}
+
+.title h1{
+  font-size:22px;
+  font-weight:600;
+  line-height:1.2;
+  margin-bottom:5px;
+}
+
+.title p{
+  font-size:13px;
+  line-height:1.35;
+  color:#1769c2;
+  margin:3px 0;
+}
+
+.title .demo-label{
+  color:#666;
+}
+
+/* =========================
+   APP INFORMATION
+========================= */
+
+.info-row{
+  display:flex;
+  width:100%;
+  padding:13px 8px;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+}
+
+.info-item{
+  flex:1;
+  text-align:center;
+  border-right:1px solid #ddd;
+}
+
+.info-item:last-child{
+  border-right:none;
+}
+
+.big{
+  font-size:25px;
+  font-weight:bold;
+}
+
+.blue{
+  color:#1769d1;
+}
+
+.small{
+  color:#555;
+  font-size:13px;
+  margin-top:5px;
+}
+
+/* =========================
+   DEMO LABEL
+========================= */
+
+.demo{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  padding:13px 10px 4px;
+}
+
+/* =========================
+   INSTALL BUTTON
+========================= */
+
+.install-area{
+  padding:10px 20px 23px;
+}
+
+.install-btn{
+  display:block;
+  width:100%;
+  padding:14px;
+  background:#1769d1;
+  color:#fff;
+  text-align:center;
+  text-decoration:none;
+  border-radius:28px;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 3px 9px rgba(0,0,0,.18);
+}
+
+.install-btn:active{
+  transform:scale(.98);
+}
+
+/* =========================
+   RATINGS
+========================= */
+
+.reviews{
+  border-top:1px solid #ddd;
+  padding:21px 20px;
+}
+
+.reviews h2{
+  font-size:21px;
+  font-weight:500;
+  margin-bottom:17px;
+}
+
+.rating-top{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.rating-number{
+  font-size:52px;
+  line-height:1;
+}
+
+.stars{
+  color:#1769d1;
+  font-size:21px;
+  letter-spacing:1px;
+}
+
+.review-count{
+  color:#666;
+  font-size:14px;
+  margin-top:5px;
+}
+
+/* =========================
+   RATING BARS
+========================= */
+
+.bars{
+  margin-top:20px;
+}
+
+.bar-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:8px 0;
+  font-size:13px;
+}
+
+.bar{
+  flex:1;
+  height:10px;
+  background:#dce3eb;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  background:#1769d1;
+  border-radius:20px;
+}
+
+.five{
+  width:78%;
+}
+
+.four{
+  width:15%;
+}
+
+.three{
+  width:5%;
+}
+
+.two{
+  width:4%;
+}
+
+.one{
+  width:3%;
+}
+
+/* =========================
+   REVIEW
+========================= */
+
+.review-card{
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid #ddd;
+}
+
+.user{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.avatar{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:#e5e7eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.username{
   font-size:16px;
+  font-weight:bold;
+}
+
+.date{
+  font-size:12px;
+  color:#777;
+  margin-top:3px;
+}
+
+.review-stars{
+  color:#1769d1;
+  font-size:20px;
+  margin-top:14px;
+}
+
+.review-text{
+  color:#444;
+  font-size:14px;
+  line-height:1.55;
+  margin-top:9px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:11px;
+  padding:25px 15px;
 }
 </style>
+</head>
 
-<div class="app-icon">
-  <div class="app-icon-text">
-    CARD
-    <span>APP</span>
+
+<body>
+
+<div class="page">
+
+  <!-- APP HEADER -->
+
+  <div class="header">
+
+    <div class="app-icon">
+      <div class="app-icon-text">
+        CARD
+        <span>APP</span>
+      </div>
+    </div>
+
+    <div class="title">
+
+      <h1>Card Manager<br>Credit Card</h1>
+
+      <p>
+        Card Management Services
+      </p>
+
+      <p class="demo-label">
+        Unofficial Demo
+      </p>
+
+    </div>
+
   </div>
+
+
+  <!-- APP INFORMATION -->
+
+  <div class="info-row">
+
+    <div class="info-item">
+      <div class="big blue">4.6 ★</div>
+      <div class="small">1m reviews</div>
+    </div>
+
+    <div class="info-item">
+      <div class="big">3+</div>
+      <div class="small">Rated for 3+</div>
+    </div>
+
+    <div class="info-item">
+      <div class="big">10m+</div>
+      <div class="small">Downloads</div>
+    </div>
+
+  </div>
+
+
+  <!-- DEMO -->
+
+  <div class="demo">
+    Unofficial Demo • Test Application
+  </div>
+
+
+  <!-- INSTALL -->
+
+  <div class="install-area">
+
+    <a href="#"
+       class="install-btn"
+       onclick="showDemoMessage(); return false;">
+      Install App
+    </a>
+
+  </div>
+
+
+  <!-- RATINGS -->
+
+  <div class="reviews">
+
+    <h2>Ratings and reviews</h2>
+
+    <div class="rating-top">
+
+      <div>
+        <div class="rating-number">4.6</div>
+
+        <div class="review-count">
+          1,539,142 reviews
+        </div>
+      </div>
+
+      <div class="stars">
+        ★ ★ ★ ★ ★
+      </div>
+
+    </div>
+
+
+    <!-- RATING BARS -->
+
+    <div class="bars">
+
+      <div class="bar-row">
+        <span>5</span>
+        <div class="bar">
+          <div class="fill five"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>4</span>
+        <div class="bar">
+          <div class="fill four"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>3</span>
+        <div class="bar">
+          <div class="fill three"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>2</span>
+        <div class="bar">
+          <div class="fill two"></div>
+        </div>
+      </div>
+
+      <div class="bar-row">
+        <span>1</span>
+        <div class="bar">
+          <div class="fill one"></div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- REVIEW CARD -->
+
+    <div class="review-card">
+
+      <div class="user">
+
+        <div class="avatar">
+          👤
+        </div>
+
+        <div>
+
+          <div class="username">
+            User Review
+          </div>
+
+          <div class="date">
+            16/07/2026
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="review-stars">
+        ★ ★ ★ ★ ★
+      </div>
+
+
+      <div class="review-text">
+        This is an official  page.
+        This content is only for testing the HTML design.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    • Not affiliated with any financial service
+  </div>
+
 </div>
+
+
+<script>
+function showDemoMessage(){
+  alert("This is an Official app.");
+}
+</script>
+
+</body>
+</html>
