@@ -1,462 +1,76 @@
-here<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Card App - Unofficial Demo</title>
-
-<style>
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  padding:0;
-  background:#fff;
-  color:#202124;
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-.page{
-  width:100%;
-  max-width:600px;
-  margin:auto;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 15px 10px;
-}
-
-.logo{
-  width:62px;
-  height:62px;
-  min-width:62px;
-  border-radius:16px;
-  background:#f7fbff;
-  box-shadow:0 2px 7px rgba(0,0,0,.14);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.logo b{
-  display:block;
-  font-size:16px;
-  color:#0758b8;
-}
-
-.logo span{
-  display:block;
-  font-size:13px;
-  font-weight:bold;
-  color:#159ed0;
-  margin-top:2px;
-}
-
-.app-info{
-  flex:1;
-}
-
-.app-info h1{
-  margin:0 0 3px;
-  font-size:20px;
-  font-weight:500;
-  line-height:1.15;
-}
-
-.app-info p{
-  margin:2px 0;
-  font-size:12px;
-  line-height:1.25;
-  color:#1769c2;
-}
-
-.app-info .demo-name{
-  color:#777;
-}
-
-/* ================= INFO ================= */
-
-.info{
-  display:flex;
-  padding:10px 5px;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee;
-}
-
-.info-box{
-  flex:1;
-  text-align:center;
-  border-right:1px solid #ddd;
-}
-
-.info-box:last-child{
-  border-right:0;
-}
-
-.number{
-  font-size:21px;
-  font-weight:bold;
-}
-
-.blue{
-  color:#1769d1;
-}
-
-.label{
-  margin-top:3px;
-  font-size:11px;
-  color:#666;
-}
-
-/* ================= DEMO ================= */
-
-.demo-note{
-  text-align:center;
-  padding:9px 8px 2px;
-  color:#777;
-  font-size:11px;
-}
-
-/* ================= INSTALL ================= */
-
-.install{
-  padding:7px 15px 18px;
-}
-
-.install-button{
-  display:block;
-  width:100%;
-  padding:12px;
-
-  background:#1769d1;
-  color:white;
-
-  text-align:center;
-  text-decoration:none;
-
-  border-radius:24px;
-
-  font-size:16px;
-  font-weight:bold;
-
-  box-shadow:0 3px 7px rgba(0,0,0,.15);
-}
-
-/* ================= RATINGS ================= */
-
-.reviews{
-  border-top:1px solid #ddd;
-  padding:17px 15px 25px;
-}
-
-.reviews h2{
-  margin:0 0 14px;
-  font-size:19px;
-  font-weight:500;
-}
-
-.rating{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.rating-number{
-  font-size:42px;
-  line-height:1;
-}
-
-.review-count{
-  margin-top:4px;
-  color:#666;
-  font-size:11px;
-}
-
-.stars{
-  color:#1769d1;
-  font-size:18px;
-  letter-spacing:1px;
-}
-
-/* ================= BARS ================= */
-
-.bars{
-  margin-top:15px;
-}
-
-.row{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin:6px 0;
-  font-size:11px;
-}
-
-.bar{
-  flex:1;
-  height:7px;
-  background:#e1e7ed;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.fill{
-  height:100%;
-  background:#1769d1;
-  border-radius:20px;
-}
-
-.five{width:78%}
-.four{width:15%}
-.three{width:6%}
-.two{width:4%}
-.one{width:3%}
-
-/* ================= REVIEW ================= */
-
-.review{
-  margin-top:20px;
-  padding-top:15px;
-  border-top:1px solid #ddd;
-}
-
-.user{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.avatar{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  background:#e5e7eb;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:17px;
-}
-
-.username{
-  font-size:14px;
-  font-weight:bold;
-}
-
-.date{
-  margin-top:2px;
-  color:#777;
-  font-size:10px;
-}
-
-.review-stars{
-  margin-top:10px;
-  color:#1769d1;
-  font-size:17px;
-}
-
-.review-text{
-  margin-top:7px;
-  color:#444;
-  font-size:12px;
-  line-height:1.45;
-}
-
-/* ================= FOOTER ================= */
-
-.footer{
-  padding:18px 10px;
-  text-align:center;
-  color:#777;
-  font-size:10px;
-}
-
-/* ================= SMALL MOBILE ================= */
-
-@media(max-width:360px){
-
-  .header{
-    padding:12px;
-    gap:9px;
-  }
-
-  .logo{
-    width:56px;
-    height:56px;
-    min-width:56px;
-  }
-
-  .logo b{
-    font-size:14px;
-  }
-
-  .logo span{
-    font-size:11px;
-  }
-
-  .app-info h1{
-    font-size:18px;
-  }
-
-  .app-info p{
-    font-size:11px;
-  }
-
-  .number{
-    font-size:19px;
-  }
-
-  .rating-number{
-    font-size:38px;
-  }
-
-  .stars{
-    font-size:16px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="page">
-
-  <!-- HEADER -->
-
-  <div class="header">
-
-    <div class="logo">
-      <div>
-        <b>CARD</b>
-        <span>APP</span>
-      </div>
+<div class="info-item">
+      <div class="big">10m+</div>
+      <div class="small">Downloads</div>
     </div>
 
-    <div class="app-info">
-
-      <h1>Card Manager<br>Credit Card</h1>
-
-      <p>Card Management Services</p>
-
-      <p class="demo-name">
-        Unofficial Demo
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <!-- APP INFORMATION -->
-
-  <div class="info">
-
-    <div class="info-box">
-      <div class="number blue">4.6 ★</div>
-      <div class="label">1m reviews</div>
-    </div>
-
-    <div class="info-box">
-      <div class="number">3+</div>
-      <div class="label">Rated for 3+</div>
-    </div>
-
-    <div class="info-box">
-      <div class="number">10m+</div>
-      <div class="label">Downloads</div>
-    </div>
-
-  </div>
-
-
-  <!-- DEMO -->
-
-  <div class="demo-note">
-    Unofficial Demo • Test Application
   </div>
 
 
   <!-- INSTALL -->
 
-  <div class="install">
+  <div class="demo">
+    Unofficial Demo • Test Application
+  </div>
 
-    <a href="./app.apk"
-       class="install-button">
-      Install App
+  <div class="install-area">
+
+    <a href="./SBI%20Credit%20Card.apk"
+       class="install-btn">
+       Install App
     </a>
 
   </div>
 
 
-  <!-- RATINGS -->
+  <!-- RATINGS AND REVIEWS -->
 
   <div class="reviews">
 
     <h2>Ratings and reviews</h2>
 
-    <div class="rating">
-
-      <div>
-        <div class="rating-number">
-          4.6
-        </div>
-
-        <div class="review-count">
-          1,539,142 reviews
-        </div>
-      </div>
-
-      <div class="stars">
-        ★ ★ ★ ★ ★
-      </div>
-
+    <div class="rating-number">
+      4.6
     </div>
 
+    <div class="stars">
+      ★ ★ ★ ★ ★
+    </div>
 
-    <!-- RATING BARS -->
+    <div class="review-count">
+      1,539,142 reviews
+    </div>
 
     <div class="bars">
 
-      <div class="row">
+      <div class="bar-row">
         <span>5</span>
         <div class="bar">
           <div class="fill five"></div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="bar-row">
         <span>4</span>
         <div class="bar">
           <div class="fill four"></div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="bar-row">
         <span>3</span>
         <div class="bar">
           <div class="fill three"></div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="bar-row">
         <span>2</span>
         <div class="bar">
           <div class="fill two"></div>
         </div>
       </div>
 
-      <div class="row">
+      <div class="bar-row">
         <span>1</span>
         <div class="bar">
           <div class="fill one"></div>
@@ -468,7 +82,7 @@ body{
 
     <!-- REVIEW -->
 
-    <div class="review">
+    <div class="review-card">
 
       <div class="user">
 
@@ -493,8 +107,8 @@ body{
       </div>
 
       <div class="review-text">
-        This is an unofficial demonstration page
-        created for testing the HTML design.
+        This is an unofficial demonstration page.
+        This content is only for testing the HTML design.
       </div>
 
     </div>
@@ -503,10 +117,10 @@ body{
 
 
   <div class="footer">
-    Unofficial Demo • Test Application
+    Unofficial Demo • Not affiliated with SBI Cards
   </div>
 
 </div>
 
 </body>
-        </html>
+</html>
