@@ -1,602 +1,507 @@
 here<!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Card Manager - Unofficial Demo</title>
+<title>SBI Card</title>
 
 <style>
 *{
   box-sizing:border-box;
-}
-
-html,body{
   margin:0;
   padding:0;
-  background:#fff;
-  color:#202124;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial,sans-serif;
 }
 
-.page{
-  width:100%;
-  max-width:620px;
+body{
+  background:#f5f6f8;
+  color:#171717;
+}
+
+.container{
+  max-width:520px;
   margin:auto;
+  background:#fff;
+  min-height:100vh;
+  padding-bottom:30px;
 }
 
-/* HEADER */
-.header{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:16px 15px 12px;
+/* TOP - SAME */
+.top{
+  padding:22px 20px 18px;
 }
 
-.app-icon{
-  width:68px;
-  height:68px;
-  min-width:68px;
-  border-radius:18px;
-  background:linear-gradient(145deg,#fff,#f7fbff);
-  border:1px solid #eef1f4;
-
+.app-row{
   display:flex;
   align-items:center;
-  justify-content:center;
-
-  box-shadow:
-    0 2px 5px rgba(0,0,0,.08),
-    0 6px 14px rgba(0,0,0,.09);
+  gap:16px;
 }
 
 .logo{
-  text-align:center;
+  width:76px;
+  height:76px;
+  border-radius:17px;
+  object-fit:cover;
 }
 
-.logo-circle{
-  width:21px;
-  height:21px;
-  margin:auto;
-  border-radius:50%;
-
-  background:linear-gradient(145deg,#20b4e3,#087fc5);
-  color:#fff;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:10px;
-  font-weight:bold;
-}
-
-.logo-text{
-  margin-top:4px;
-  font-size:12px;
-  font-weight:bold;
-  color:#182b73;
-}
-
-.logo-text span{
-  color:#16a5d7;
-  font-weight:normal;
-}
-
-.title{
+.app-info{
   flex:1;
 }
 
-.title h1{
-  margin:0 0 4px;
-  font-size:21px;
-  line-height:1.15;
-  font-weight:500;
+.app-info h1{
+  font-size:24px;
+  margin-bottom:6px;
 }
 
-.title p{
-  margin:3px 0;
-  font-size:12px;
-  color:#1769c2;
-}
-
-.title .demo{
-  color:#777;
-}
-
-/* INFORMATION */
-.info{
-  display:flex;
-  padding:11px 6px;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee;
-}
-
-.info-box{
-  flex:1;
-  text-align:center;
-  border-right:1px solid #ddd;
-}
-
-.info-box:last-child{
-  border-right:0;
-}
-
-.number{
-  font-size:22px;
-  font-weight:600;
-}
-
-.blue{
-  color:#1769d1;
-}
-
-.label{
-  margin-top:4px;
-  font-size:11px;
+.app-info p{
   color:#666;
+  font-size:14px;
 }
 
-/* DEMO */
-.demo-area{
-  text-align:center;
-  padding:10px 15px 5px;
-}
-
-.demo-badge{
+.unofficial{
   display:inline-block;
-  padding:5px 11px;
-
-  border:1px solid #e2e9f0;
-  border-radius:20px;
-
-  background:#f4f8fb;
-  color:#66717d;
-
-  font-size:10px;
+  margin-top:7px;
+  padding:4px 8px;
+  border-radius:5px;
+  background:#eeeeee;
+  color:#666;
+  font-size:11px;
+  font-weight:bold;
 }
 
 /* INSTALL */
-.install-area{
-  padding:8px 16px 20px;
+.install-box{
+  padding:8px 20px 20px;
 }
 
-.install-btn{
-  display:block;
+.install{
   width:100%;
-
-  padding:13px;
-
+  height:48px;
+  border:0;
   border-radius:25px;
-
-  background:linear-gradient(
-    180deg,
-    #2878df,
-    #1262ca
-  );
-
-  color:white;
-  text-decoration:none;
-  text-align:center;
-
+  background:#1769e0;
+  color:#fff;
   font-size:16px;
   font-weight:bold;
-
-  box-shadow:
-    0 3px 7px rgba(23,105,209,.20),
-    0 5px 12px rgba(23,105,209,.08);
+  cursor:pointer;
 }
 
-.install-btn:active{
-  transform:scale(.985);
+.install:active{
+  transform:scale(.98);
 }
 
-/* REVIEWS */
-.reviews{
-  border-top:1px solid #ddd;
-  padding:18px 16px 28px;
-}
-
-.reviews h2{
-  margin:0 0 16px;
-  font-size:19px;
-  font-weight:500;
-}
-
-.rating-top{
+/* INFO */
+.info{
   display:flex;
+  justify-content:space-around;
+  text-align:center;
+  padding:15px 10px 20px;
+  border-bottom:1px solid #eee;
+}
+
+.info div{
+  font-size:13px;
+  color:#666;
+}
+
+.info strong{
+  display:block;
+  color:#222;
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+/* ABOUT */
+.section{
+  padding:20px;
+}
+
+.section h2{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.about{
+  color:#555;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* RATINGS - MORE COMPACT */
+.rating-section{
+  margin:6px 16px 0;
+  padding:11px;
+  border:1px solid #e6e6e6;
+  border-radius:10px;
+  background:#fff;
+}
+
+.rating-section h2{
+  font-size:15px;
+  margin-bottom:9px;
+}
+
+.rating-main{
+  display:flex;
+  gap:11px;
   align-items:center;
 }
 
-.rating-left{
-  width:112px;
-}
-
 .rating-number{
-  font-size:43px;
-  line-height:1;
+  width:58px;
+  text-align:center;
 }
 
-.review-count{
-  margin-top:5px;
-  font-size:11px;
-  color:#70757a;
+.rating-number strong{
+  display:block;
+  font-size:25px;
 }
 
 .stars{
-  flex:1;
-  color:#1769d1;
-  font-size:18px;
-  letter-spacing:1px;
+  color:#f5a623;
+  font-size:10px;
+  letter-spacing:.5px;
 }
 
-/* RATING BARS */
+.rating-number small{
+  display:block;
+  color:#777;
+  font-size:8px;
+  margin-top:2px;
+}
+
 .bars{
-  margin-top:17px;
+  flex:1;
 }
 
 .bar-row{
   display:flex;
   align-items:center;
-  gap:7px;
-  height:16px;
-  margin:4px 0;
-  font-size:11px;
+  gap:5px;
+  height:10px;
 }
 
 .bar-row span{
-  width:10px;
-  text-align:center;
+  width:8px;
+  font-size:8px;
   color:#555;
 }
 
 .bar{
+  height:4px;
+  background:#e2e2e2;
+  border-radius:10px;
   flex:1;
-  height:7px;
-  background:#e5eaf0;
-  border-radius:20px;
   overflow:hidden;
 }
 
 .fill{
   height:100%;
-  border-radius:20px;
-  background:linear-gradient(
-    90deg,
-    #1261ca,
-    #2d7ee2
-  );
+  background:#f5a623;
+  border-radius:10px;
 }
 
-.five{width:82%}
-.four{width:18%}
-.three{width:7%}
-.two{width:5%}
-.one{width:3%}
-
-/* REVIEW */
+/* REVIEWS - SMALL */
 .review{
-  margin-top:21px;
-  padding-top:17px;
-  border-top:1px solid #e5e5e5;
+  margin-top:9px;
+  padding-top:8px;
+  border-top:1px solid #eee;
 }
 
-.user{
+.review-head{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:7px;
 }
 
 .avatar{
-  width:39px;
-  height:39px;
+  width:25px;
+  height:25px;
   border-radius:50%;
-
-  background:linear-gradient(
-    145deg,
-    #eef1f5,
-    #dfe4ea
-  );
-
+  background:#ddd;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:17px;
-}
-
-.username{
-  font-size:14px;
+  font-size:10px;
   font-weight:bold;
 }
 
-.date{
-  margin-top:3px;
+.review-name{
   font-size:10px;
-  color:#777;
+  font-weight:bold;
 }
 
-.review-stars{
-  margin-top:10px;
-  color:#1769d1;
-  font-size:16px;
-  letter-spacing:1px;
+.review-date{
+  font-size:8px;
+  color:#888;
+}
+
+.review .stars{
+  margin-top:2px;
+  font-size:9px;
 }
 
 .review-text{
-  margin-top:7px;
-  color:#4d5156;
-  font-size:12px;
-  line-height:1.5;
+  margin:4px 0 0 32px;
+  color:#555;
+  font-size:9px;
+  line-height:1.35;
 }
 
-/* FOOTER */
-.footer{
-  padding:18px 10px 24px;
+/* DETAILS */
+.details{
+  margin:12px 16px 0;
+  padding:13px;
+  border-radius:10px;
+  background:#f8f8f8;
+}
+
+.details h3{
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+.detail-row{
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  border-bottom:1px solid #e8e8e8;
+  font-size:11px;
+}
+
+.detail-row:last-child{
+  border-bottom:0;
+}
+
+.detail-row span:last-child{
+  color:#666;
+}
+
+/* MESSAGE */
+.message{
+  display:none;
   text-align:center;
-  color:#888;
-  font-size:10px;
-}
-
-/* MOBILE */
-@media(max-width:360px){
-
-  .header{
-    padding:13px 12px 10px;
-    gap:10px;
-  }
-
-  .app-icon{
-    width:60px;
-    height:60px;
-    min-width:60px;
-    border-radius:16px;
-  }
-
-  .logo-circle{
-    width:18px;
-    height:18px;
-    font-size:9px;
-  }
-
-  .logo-text{
-    font-size:11px;
-  }
-
-  .title h1{
-    font-size:18px;
-  }
-
-  .title p{
-    font-size:11px;
-  }
-
-  .number{
-    font-size:19px;
-  }
-
-  .label{
-    font-size:10px;
-  }
-
-  .rating-number{
-    font-size:39px;
-  }
-
-  .stars{
-    font-size:16px;
-  }
+  margin:12px 20px 0;
+  padding:10px;
+  border-radius:8px;
+  background:#eaf3ff;
+  color:#1769e0;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="page">
+<div class="container">
 
-  <!-- HEADER -->
+  <!-- TOP -->
+  <div class="top">
+    <div class="app-row">
 
-  <div class="header">
+      <!-- SAME SBI CARD LOGO -->
+      <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/SBI-logo.svg/512px-SBI-logo.svg.png"
+        alt="SBI Card Logo"
+      >
 
-    <div class="app-icon">
-
-      <div class="logo">
-
-        <div class="logo-circle">
-          C
-        </div>
-
-        <div class="logo-text">
-          Card<span>App</span>
-        </div>
-
+      <div class="app-info">
+        <h1>SBI Card</h1>
+        <p>State Bank of India</p>
+        <span class="unofficial">Unofficial</span>
       </div>
 
     </div>
-
-    <div class="title">
-
-      <h1>
-        Card Manager<br>
-        Credit Card
-      </h1>
-
-      <p>
-        Card Management Services
-      </p>
-
-      <p class="demo">
-        Unofficial Demo
-      </p>
-
-    </div>
-
   </div>
-
-
-  <!-- APP INFORMATION -->
-
-  <div class="info">
-
-    <div class="info-box">
-      <div class="number blue">4.6 ★</div>
-      <div class="label">1m reviews</div>
-    </div>
-
-    <div class="info-box">
-      <div class="number">3+</div>
-      <div class="label">Rated for 3+</div>
-    </div>
-
-    <div class="info-box">
-      <div class="number">10m+</div>
-      <div class="label">Downloads</div>
-    </div>
-
-  </div>
-
-
-  <!-- DEMO LABEL -->
-
-  <div class="demo-area">
-
-    <div class="demo-badge">
-      Unofficial Demo • Test Application
-    </div>
-
-  </div>
-
 
   <!-- INSTALL BUTTON -->
+  <div class="install-box">
+    <button class="install" onclick="installApp()">
+      Install
+    </button>
+  </div>
 
-  <div class="install-area">
+  <div id="message" class="message">
+    Install button clicked
+  </div>
 
-    <a href="./app.apk" class="install-btn">
-      Install App
-    </a>
+  <!-- APP INFO -->
+  <div class="info">
+
+    <div>
+      <strong>4.2 ★</strong>
+      Rating
+    </div>
+
+    <div>
+      <strong>10M+</strong>
+      Downloads
+    </div>
+
+    <div>
+      <strong>3+</strong>
+      Rated for
+    </div>
 
   </div>
 
+  <!-- ABOUT -->
+  <div class="section">
 
-  <!-- RATINGS -->
+    <h2>About this app</h2>
 
-  <div class="reviews">
+    <p class="about">
+      SBI Card is a demo application page created for testing
+      and presentation purposes. This page is not an official
+      SBI Card application.
+    </p>
 
-    <h2>
-      Ratings and reviews
-    </h2>
+  </div>
 
+  <!-- SMALL RATINGS -->
+  <div class="rating-section">
 
-    <div class="rating-top">
+    <h2>Ratings and reviews</h2>
 
-      <div class="rating-left">
+    <div class="rating-main">
 
-        <div class="rating-number">
-          4.6
+      <div class="rating-number">
+        <strong>4.2</strong>
+        <div class="stars">★★★★★</div>
+        <small>1,248 reviews</small>
+      </div>
+
+      <div class="bars">
+
+        <div class="bar-row">
+          <span>5</span>
+          <div class="bar">
+            <div class="fill" style="width:78%"></div>
+          </div>
         </div>
 
-        <div class="review-count">
-          1,539,142 reviews
+        <div class="bar-row">
+          <span>4</span>
+          <div class="bar">
+            <div class="fill" style="width:55%"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <span>3</span>
+          <div class="bar">
+            <div class="fill" style="width:30%"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <span>2</span>
+          <div class="bar">
+            <div class="fill" style="width:15%"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <span>1</span>
+          <div class="bar">
+            <div class="fill" style="width:9%"></div>
+          </div>
         </div>
 
       </div>
-
-      <div class="stars">
-        ★ ★ ★ ★ ★
-      </div>
-
     </div>
 
-
-    <!-- RATING BARS -->
-
-    <div class="bars">
-
-      <div class="bar-row">
-        <span>5</span>
-        <div class="bar">
-          <div class="fill five"></div>
-        </div>
-      </div>
-
-      <div class="bar-row">
-        <span>4</span>
-        <div class="bar">
-          <div class="fill four"></div>
-        </div>
-      </div>
-
-      <div class="bar-row">
-        <span>3</span>
-        <div class="bar">
-          <div class="fill three"></div>
-        </div>
-      </div>
-
-      <div class="bar-row">
-        <span>2</span>
-        <div class="bar">
-          <div class="fill two"></div>
-        </div>
-      </div>
-
-      <div class="bar-row">
-        <span>1</span>
-        <div class="bar">
-          <div class="fill one"></div>
-        </div>
-      </div>
-
-    </div>
-
-
-    <!-- REVIEW -->
-
+    <!-- REVIEW 1 -->
     <div class="review">
 
-      <div class="user">
+      <div class="review-head">
 
-        <div class="avatar">
-          👤
-        </div>
+        <div class="avatar">R</div>
 
         <div>
-
-          <div class="username">
-            User Review
-          </div>
-
-          <div class="date">
-            16/07/2026
-          </div>
-
+          <div class="review-name">Rahul</div>
+          <div class="review-date">2 days ago</div>
         </div>
 
       </div>
 
+      <div class="stars">★★★★★</div>
 
-      <div class="review-stars">
-        ★ ★ ★ ★ ★
+      <p class="review-text">
+        Nice interface and simple design. Demo testing ke liye
+        kaafi clean lagta hai.
+      </p>
+
+    </div>
+
+    <!-- REVIEW 2 -->
+    <div class="review">
+
+      <div class="review-head">
+
+        <div class="avatar">A</div>
+
+        <div>
+          <div class="review-name">Amit</div>
+          <div class="review-date">5 days ago</div>
+        </div>
+
       </div>
 
+      <div class="stars">★★★★☆</div>
 
-      <div class="review-text">
-        This is an unofficial demonstration page
-        created for testing the HTML design.
-      </div>
+      <p class="review-text">
+        Page layout clean hai aur information easily samajh
+        aa rahi hai.
+      </p>
 
     </div>
 
   </div>
 
+  <!-- DETAILS -->
+  <div class="details">
 
-  <!-- FOOTER -->
+    <h3>App details</h3>
 
-  <div class="footer">
-    Unofficial Demo • Test Application
+    <div class="detail-row">
+      <span>Version</span>
+      <span>1.0.0</span>
+    </div>
+
+    <div class="detail-row">
+      <span>Updated</span>
+      <span>Today</span>
+    </div>
+
+    <div class="detail-row">
+      <span>Size</span>
+      <span>24 MB</span>
+    </div>
+
+    <div class="detail-row">
+      <span>Developer</span>
+      <span>Demo Developer</span>
+    </div>
+
   </div>
 
 </div>
 
+<script>
+function installApp(){
+
+  const message = document.getElementById("message");
+
+  message.style.display = "block";
+
+  setTimeout(function(){
+    message.style.display = "none";
+  },3000);
+
+}
+</script>
+
 </body>
-  </html>
+    </html>
