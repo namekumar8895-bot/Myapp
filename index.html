@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>SBI Card - Play Store</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Google Sans', Roboto, Arial, sans-serif;
+    background: #fff;
+    margin: 0;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  /* ---------- App Header Section ---------- */
+  .app-header {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  .app-icon {
+    width: 96px;
+    height: 96px;
+    min-width: 96px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: #111;
+  }
+  .app-icon .dot { color: #1a73e8; font-size: 20px; margin-right: 2px; }
+  .app-info h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 6px 0;
+    color: #202124;
+    line-height: 1.25;
+  }
+  .app-info .dev {
+    color: #01875f;
+    color: #1a73e8;
+    font-size: 16px;
+    margin: 0 0 14px 0;
+  }
+  .stats-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .stat { text-align: left; }
+  .stat .top {
+    font-size: 15px;
+    font-weight: 500;
+    color: #202124;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .stat .top .star { color: #202124; font-size: 13px; }
+  .stat .bottom {
+    font-size: 13px;
+    color: #5f6368;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+  }
+  .divider-v { width: 1px; height: 32px; background: #e0e0e0; }
+  .age-box {
+    border: 1.5px solid #202124;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* ---------- Install Button ---------- */
+  .install-btn {
+    background: #01875f;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px 0 28px 0;
+  }
+  .install-btn:hover { background: #016a4a; }
+  .install-btn.center-wrap { display: flex; justify-content: center; }
+
+  hr.section-line {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 0 0 24px 0;
+  }
+
+  /* ---------- Ratings Section ---------- */
+  .ratings-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .ratings-title-row h2 {
+    font-size: 22px;
+    font-weight: 500;
+    color: #202124;
+    margin: 0;
+  }
+  .arrow-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #202124;
+  }
+  .ratings-desc {
+    font-size: 14px;
+    color: #5f6368;
+    line-height: 1.5;
+    margin-bottom: 22px;
+  }
+
+  .rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 22px;
+  }
+  .rating-number { font-size: 56px; font-weight: 400; color: #202124; }
+  .rating-left .stars { color: #1a73e8; font-size: 15px; margin: 2px 0; }
+  .rating-left .count { font-size: 13px; color: #5f6368; }
+
+  .bars { flex: 1; }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .bar-row .num { font-size: 13px; color: #5f6368; width: 8px; }
+  .bar-track {
+    flex: 1;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bar-fill { height: 100%; background: #1a73e8; border-radius: 4px; }
+
+  .tags-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  .tag {
+    border: 1px solid #dadce0;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #202124;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ---------- Second Install Button (center, between sections) ---------- */
+  .install-btn.small {
+    padding: 9px 30px;
+    font-size: 13px;
+  }
+
+  /* ---------- Review Card (smaller) ---------- */
+  .review-card {
+    transform: scale(0.82);
+    transform-origin: top left;
+    width: 122%;
+    margin-top: -6px;
+  }
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#4fc3f7,#1565c0);
+  }
+  .reviewer-name { font-size: 15px; color: #202124; }
+  .menu-dots { color: #5f6368; font-size: 18px; }
+  .review-stars-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .review-stars { color: #1a73e8; font-size: 14px; }
+  .review-date { font-size: 13px; color: #5f6368; }
+  .review-text {
+    font-size: 14px;
+    color: #202124;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ============ IMAGE 1: App Header ============ -->
+  <div class="app-header">
+    <div class="app-icon">
+      <span><span class="dot">◒</span>SBI card</span>
+    </div>
+    <div class="app-info">
+      <h1>SBI Card: Manage<br>Credit Card</h1>
+      <p class="dev">SBI Cards and Payment Services Limited</p>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="top">4.6 <span class="star">★</span></div>
+          <div class="bottom">1m reviews <span>ⓘ</span></div>
+        </div>
+        <div class="divider-v"></div>
+        <div class="stat">
+          <div class="top"><span class="age-box">3+</span></div>
+          <div class="bottom">Rated for 3+ <span>ⓘ</span></div>
+        </div>
+        <div class="divider-v"></div>
+        <div class="stat">
+          <div class="top">10m+</div>
+          <div class="bottom">Downloads</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Install button under image 1 -->
+  <button class="install-btn">Install</button>
+
+  <hr class="section-line">
+
+  <!-- ============ IMAGE 2: Ratings and Reviews ============ -->
+  <div class="ratings-title-row">
+    <h2>Ratings and reviews</h2>
+    <div class="arrow-circle">→</div>
+  </div>
+  <p class="ratings-desc">
+    Ratings and reviews are verified and are from people who use the same type of device that you use ⓘ
+  </p>
+
+  <div class="rating-summary">
+    <div class="rating-left">
+      <div class="rating-number">4.6</div>
+      <div class="stars">★★★★☆</div>
+      <div class="count">1,539,371</div>
+    </div>
+    <div class="bars">
+      <div class="bar-row"><span class="num">5</span><div class="bar-track"><div class="bar-fill" style="width:78%"></div></div></div>
+      <div class="bar-row"><span class="num">4</span><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div></div>
+      <div class="bar-row"><span class="num">3</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div></div>
+      <div class="bar-row"><span class="num">2</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div></div>
+      <div class="bar-row"><span class="num">1</span><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="tags-row">
+    <div class="tag">🔍 <span></span></div>
+    <div class="tag">😊 User Interface 1k</div>
+    <div class="tag">Customer Support 722</div>
+    <div class="tag">+8</div>
+  </div>
+
+  <!-- Install button in middle, between ratings & review -->
+  <div class="install-btn-wrap" style="display:flex; justify-content:center;">
+    <button class="install-btn small">Install</button>
+  </div>
+
+  <hr class="section-line">
+
+  <!-- Review card, smaller size -->
+  <div class="review-card">
+    <div class="review-header">
+      <div class="reviewer">
+        <div class="avatar"></div>
+        <div class="reviewer-name">vinu nair</div>
+      </div>
+      <div class="menu-dots">⋮</div>
+    </div>
+    <div class="review-stars-row">
+      <span class="review-stars">★★★★★</span>
+      <span class="review-date">02/08/2026</span>
+    </div>
+    <p class="review-text">
+      Very Simple and useful. The SBI credit card reward point system is very poor. Furthermore, the product value required for redemption is too high. Because ...
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
